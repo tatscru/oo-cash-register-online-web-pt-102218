@@ -9,8 +9,8 @@ class CashRegister
     @item_array = []
   end 
   
-  def add_item(title, price, quantity = 1) 
-    quantity.times {@item_array << title}
+  def add_item(item, price, quantity = 1) 
+    quantity.times {@item_array << item}
     # here we are keeping track of item names, including the quantity
     @price = price  
     @total += price * quantity
@@ -23,7 +23,7 @@ class CashRegister
   def apply_discount
     if @discount == 0 
        "There is no discount to apply."
-    else  @total -= @total * @discount / 100
+    else  self.total -= @total * @discount / 100
       # figure out the discount per above..#here we are first figuring out the discount by multiplying the total by the discount, dividing by 100 and then subtracing that by the total!! 
       "After the discount, the total comes to $#{@total}."
     end 
